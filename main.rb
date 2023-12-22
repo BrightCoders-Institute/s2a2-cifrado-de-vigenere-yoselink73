@@ -24,7 +24,8 @@ if selection == 1
 elsif selection == 2
   puts 'Decodificando'
 
-  cipher.decode(key, message)
+  message_decoded = cipher.decode(key, message)
+  puts "Mensaje decodificado: #{message_decoded}"
 else
   puts 'Elije una opcion valida'
 end
