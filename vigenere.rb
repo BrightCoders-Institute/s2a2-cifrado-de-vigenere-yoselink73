@@ -20,7 +20,11 @@ class Vigenere
       key_index = token.length % key.length
     end
 
-    message_endcoded = tokens_encoded.join(' ')
+    message_tokens = []
+    tokens_encoded.each do |token|
+      message_tokens.push(find_abc_chars(token))
+    end
+    message_endcoded = message_tokens.join(' ')
     puts "Mensaje codificado: #{message_endcoded}"
   end
 
@@ -34,6 +38,14 @@ class Vigenere
       key_index = (key_index + 1) % key.length
     end
     numeric_values
+  end
+
+  def find_abc_chars(char_indexes)
+    token = ''
+    char_indexes.each do |index|
+      token += @abc[index]
+    end
+    token
   end
 
   def decode(key, message)
