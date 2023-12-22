@@ -20,20 +20,22 @@ class Vigenere
     tokens_encoded.each do |token|
       message_tokens.push(find_abc_chars(token))
     end
-    message_endcoded = message_tokens.join(' ')
-    puts "Mensaje codificado: #{message_endcoded}"
+    message_tokens.join(' ')
   end
 
   def cypher(key, token, key_index)
-    numeric_values = []
+    encoded_values = []
     token.chars.each do |char|
-      key_char_value = @abc.find_index(key[key_index])
-      token_char_value = @abc.find_index(char)
-      char_value_encoded = (key_char_value + token_char_value) % @abc.length
-      numeric_values.push(char_value_encoded)
+      encoded_values.push(get_enconde_value(key, char, key_index))
       key_index = (key_index + 1) % key.length
     end
-    numeric_values
+    encoded_values
+  end
+
+  def get_enconde_value(key, char, key_index)
+    key_char_value = @abc.find_index(key[key_index])
+    token_char_value = @abc.find_index(char)
+    (key_char_value + token_char_value) % @abc.length
   end
 
   def find_abc_chars(char_indexes)

@@ -19,7 +19,8 @@ cipher = Vigenere.new
 if selection == 1
   puts 'Codificando'
 
-  cipher.encode(key, message)
+  message_endcoded = cipher.encode(key, message)
+  puts "Mensaje codificado: #{message_endcoded}"
 elsif selection == 2
   puts 'Decodificando'
 
