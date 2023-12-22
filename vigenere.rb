@@ -7,10 +7,6 @@ class Vigenere
   end
 
   def encode(key, message)
-    puts "tu clave es: #{key}"
-    puts "tu mensaje es: #{message}"
-    key = key.upcase
-    message = message.upcase
     tokens = message.split(' ')
     tokens_encoded = []
 

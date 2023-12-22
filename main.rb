@@ -2,26 +2,26 @@
 
 require_relative 'vigenere'
 
-puts 'que deseas hacer?'
-puts '1.- codificar un mensaje'
-puts '2.- decodificar un mensaje'
+puts 'Escribe tu clave:'
+key = $stdin.gets.chomp.upcase
+puts 'Escribe tu mensaje:'
+message = $stdin.gets.chomp.upcase
+
+puts "Tu clave es: #{key}"
+puts "Tu mensaje es: #{message}"
+
+puts '¿Que deseas hacer?'
+puts '1.- Codificar un mensaje'
+puts '2.- Decodificar un mensaje'
 selection = $stdin.gets.chomp.to_i
 
 cipher = Vigenere.new
 if selection == 1
-  puts 'codificando'
-  puts 'escribe una clave:'
-  key = $stdin.gets.chomp
-  puts 'escribe tu mensaje:'
-  message = $stdin.gets.chomp
+  puts 'Codificando'
 
   cipher.encode(key, message)
 elsif selection == 2
-  puts 'decodificando'
-  puts 'escribe tu clave'
-  key = $stdin.gets.chomp
-  puts 'escribe tu mensaje cifrado'
-  message = $stdin.gets.chomp
+  puts 'Decodificando'
 
   cipher.decode(key, message)
 else
